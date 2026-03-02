@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: cijiu
+
+server:
+  port: 8080
+
+wechat:
+  corpId: ww1de817793fa1a37a
+  robot:
+    message:
+      receive:
+        token: tmgHIH1KtdGM3pWnCQKDSTGCQ9Hvw
+        encodingAESKey: mpKIr4hC47NSMz9LfkAqdcR1PmngdVBQWZ30LNjsgRk
+
+webhook:
+  urls: http://127.0.0.1:8081/webhook/receive
+  connectTimeout: 5000
+  readTimeout: 5000
+  maxRetryTime: 3
+  retryInterval: 4000
+
+http:
+  connectTimeout: 3000
+  readTimeout: 3000
+  maxRetryTime: 3
+  retryInterval: 4000
