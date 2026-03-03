@@ -1,5 +1,6 @@
 package com.decisiontree.cijiu.common.http;
 
+import com.decisiontree.cijiu.common.result.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,19 +37,19 @@ public class HttpClient {
         }});
     }
 
-    public String doPost(String url, Object requestBody, HttpHeaders headers) {
+    public Result doPost(String url, Object requestBody, HttpHeaders headers) {
         HttpHeaders finalHeaders = headers == null ? new HttpHeaders() : headers;
         if (!finalHeaders.containsHeader(HttpHeaders.CONTENT_TYPE)) {
             finalHeaders.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));
         }
 
         HttpEntity<Object> entity = new HttpEntity<>(requestBody, finalHeaders);
-        return executeWithRetry(url, HttpMethod.POST, entity, String.class);
+        return executeWithRetry(url, HttpMethod.POST, entity, Result.class);
     }
 
-    public String doGet(String url, HttpHeaders headers) {
+    public Result doGet(String url, HttpHeaders headers) {
         HttpEntity<Void> entity = new HttpEntity<>(headers);
-        return executeWithRetry(url, HttpMethod.GET, entity, String.class);
+        return executeWithRetry(url, HttpMethod.GET, entity, Result.class);
     }
 
     private <T> T executeWithRetry(String url, HttpMethod method, HttpEntity<?> entity, Class<T> responseType) {
@@ -88,11 +89,11 @@ public class HttpClient {
         return null;
     }
 
-    public String doPost(String url, Object requestBody) {
+    public Result doPost(String url, Object requestBody) {
         return doPost(url, requestBody, null);
     }
 
-    public String doGet(String url) {
+    public Result doGet(String url) {
         return doGet(url, null);
     }
 

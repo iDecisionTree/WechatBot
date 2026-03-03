@@ -2,11 +2,9 @@ package com.decisiontree.cijiu.entity.message;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class TextMessage {
+public class ImageMessage {
 
-    public String content;
+    public String url;
 
 }

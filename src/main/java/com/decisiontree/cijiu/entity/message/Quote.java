@@ -3,9 +3,10 @@ package com.decisiontree.cijiu.entity.message;
 import lombok.Data;
 
 @Data
-public class Response {
+public class Quote {
 
     public String msgtype;
-    public MarkdownMessage markdown;
+    public TextMessage text;
+    public ImageMessage image;
 
 }

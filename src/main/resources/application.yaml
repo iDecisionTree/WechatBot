@@ -12,6 +12,11 @@ wechat:
       receive:
         token: tmgHIH1KtdGM3pWnCQKDSTGCQ9Hvw
         encodingAESKey: mpKIr4hC47NSMz9LfkAqdcR1PmngdVBQWZ30LNjsgRk
+  push:
+    webhook:
+      url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=59cc578b-148a-41fb-afcc-22918697f2de
+
+
 
 webhook:
   urls: http://127.0.0.1:8081/webhook/receive
